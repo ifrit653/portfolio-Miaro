@@ -1,0 +1,39 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  min-height: 100%;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.link {
+  display: block;
+  padding: 0.35rem 0;
+  color: var(--color-cream);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 9vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  text-decoration: none;
+}
+.link[aria-current="true"] {
+  color: var(--color-accent-gold);
+}
+.link:focus-visible {
+  outline: 3px solid var(--color-cream);
+  outline-offset: 4px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: auto;
+}
