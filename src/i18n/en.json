@@ -5,10 +5,27 @@
     "process": "Process",
     "gallery": "Gallery",
     "reviews": "Reviews",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "language": "Language",
+    "primary": "Primary navigation"
   },
   "hero": {
     "title": "2D Artist & Illustrator",
     "cta": "See my work"
+  },
+  "common": {
+  "close": "Close",
+  "previous": "Previous",
+  "next": "Next",
+  "goToSlide": "Go to slide",
+  "imageViewer": "Image viewer"
+  }, 
+  "contact": {
+  "title": "Get in touch",
+  "description": "Find me on these platforms or send an email.",
+  "copyEmail": "Copy email",
+  "copied": "Email copied"
   }
 }

@@ -5,10 +5,27 @@
     "process": "Processus",
     "gallery": "Galerie",
     "reviews": "Avis",
-    "contact": "Contact"
+    "contact": "Contact", 
+    "menu": "Menu",
+    "openMenu": "Ouvrir le menu",
+    "language": "Langue",
+    "primary": "Navigation principale"
   },
   "hero": {
     "title": "Artiste 2D & Illustratrice",
     "cta": "Voir mon travail"
-  }
+  },
+  "common": {
+  "close": "Fermer",
+  "previous": "Précédent",
+  "next": "Suivant",
+  "goToSlide": "Aller à la diapositive",
+  "imageViewer": "Visionneuse d'images"
+  },
+  "contact": {
+  "title": "Me contacter",
+  "description": "Retrouvez-moi sur ces plateformes ou envoyez-moi un email.",
+  "copyEmail": "Copier l'email",
+  "copied": "Email copié"
+}
 }
