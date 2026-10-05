@@ -1,0 +1,49 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+.button:focus-visible {
+  outline: 3px solid var(--color-cream);
+  outline-offset: 3px;
+}
+
+.gold {
+  background: var(--color-accent-gold);
+  color: var(--color-bg-1);
+}
+.gold:hover {
+  box-shadow: 0 0 24px rgb(237 170 36 / 0.45);
+}
+
+.red {
+  background: var(--color-accent-red);
+  color: var(--color-cream);
+}
+.red:hover {
+  box-shadow: 0 0 24px rgb(161 17 17 / 0.6);
+}
+
+.outline {
+  background: transparent;
+  color: var(--color-cream);
+  border-color: var(--color-cream);
+}
+.outline:hover {
+  background: rgb(255 249 225 / 0.08);
+}
