@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "process": "Process",
+    "gallery": "Gallery",
+    "reviews": "Reviews",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "2D Artist & Illustrator",
+    "cta": "See my work"
+  }
+}
