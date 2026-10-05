@@ -1,0 +1,33 @@
+.group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.item {
+  padding: 0.25rem 0.65rem;
+  border: 0;
+  background: transparent;
+  color: var(--color-cream);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+.item + .item {
+  border-left: 1px solid rgb(255 249 225 / 0.3);
+}
+.item:hover {
+  opacity: 1;
+}
+.item[data-state="on"] {
+  color: var(--color-accent-gold);
+  opacity: 1;
+}
+.item:focus-visible {
+  outline: 2px solid var(--color-cream);
+  outline-offset: 2px;
+}
