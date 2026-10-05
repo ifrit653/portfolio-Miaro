@@ -1,5 +1,47 @@
-* {
+:root {
+  /* Palette */
+  --color-bg-1: #0f081f; /* main background */
+  --color-bg-2: #1a0936; /* secondary background */
+  --color-accent-red: #a11111;
+  --color-accent-gold: #edaa24;
+  --color-cream: #fff9e1; /* text */
+
+  /* Semantic aliases */
+  --bg: var(--color-bg-1);
+  --bg-alt: var(--color-bg-2);
+  --text: var(--color-cream);
+  --accent: var(--color-accent-gold);
+  --accent-strong: var(--color-accent-red);
+
+  /* Typography */
+  --font-heading: "Montserrat Variable", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans Variable", system-ui, sans-serif;
+
+  /* Navbar blur (spec: ~90% opacity of #0F081F) */
+  --navbar-bg: rgb(15 8 31 / 0.9);
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   margin: 0;
-  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 800;
 }
