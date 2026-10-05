@@ -19,6 +19,8 @@
 
   /* Navbar blur (spec: ~90% opacity of #0F081F) */
   --navbar-bg: rgb(15 8 31 / 0.9);
+  --navbar-height: 4.5rem;
+  --container-max: 1200px;
 }
 
 *,
