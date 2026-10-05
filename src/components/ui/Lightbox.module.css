@@ -1,0 +1,79 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgb(15 8 31 / 0.95);
+}
+.overlay[data-state="open"] {
+  animation: fade-in 0.25s ease;
+}
+.overlay[data-state="closed"] {
+  animation: fade-out 0.2s ease forwards;
+}
+
+.content {
+  position: fixed;
+  inset: 0;
+  z-index: 101;
+  display: grid;
+  place-items: center;
+  padding: 4.5rem 1rem;
+}
+.content[data-state="closed"] {
+  animation: fade-out 0.2s ease forwards;
+}
+
+.image {
+  max-width: min(92vw, 1400px);
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  animation: fade-in 0.3s ease;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+}
+.prev {
+  left: 1rem;
+}
+.next {
+  right: 1rem;
+}
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.counter {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  translate: -50% 0;
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .content,
+  .image {
+    animation: none !important;
+  }
+}

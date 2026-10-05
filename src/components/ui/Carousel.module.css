@@ -1,0 +1,84 @@
+/* src/components/ui/Carousel.module.css */
+.carousel {
+  position: relative;
+}
+
+.viewport {
+  overflow: hidden;
+  touch-action: pan-y; /* vertical page scroll still works on touch */
+  user-select: none;
+  cursor: grab;
+}
+.viewport:active {
+  cursor: grabbing;
+}
+
+.track {
+  display: flex;
+  gap: 1.25rem;
+  will-change: transform;
+}
+
+.slide {
+  flex: 0 0 100%; /* mobile: 1 card visible */
+  min-width: 0;
+  opacity: 0.45;
+  transition: opacity 0.4s ease;
+}
+.slide[data-active="true"] {
+  opacity: 1;
+}
+
+/* Desktop: adjacent cards peek at the edges */
+@media (min-width: 768px) {
+  .slide {
+    flex-basis: min(85%, 960px);
+  }
+}
+
+/* Arrows: desktop only, per spec */
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: none;
+  translate: 0 -50%;
+}
+.prev {
+  left: 0.5rem;
+}
+.next {
+  right: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .arrow {
+    display: inline-grid;
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgb(255 249 225 / 0.3);
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.dot[aria-current="true"] {
+  width: 1.75rem;
+  background: var(--color-accent-gold);
+}
+.dot:focus-visible {
+  outline: 2px solid var(--color-cream);
+  outline-offset: 3px;
+}
