@@ -70,5 +70,9 @@
   },
   "reviews": { "title": "Avis", "projectsCompleted": "projets réalisés", "verifyOn": "Vérifier sur" },
   "cta": { "title": "Un projet en tête ?", "text": "Donnons vie à votre idée ensemble.", "button": "Me contacter" },
-  "footer": { "rights": "Tous droits réservés.", "social": "Réseaux sociaux", "backToTop": "Retour en haut" }
+  "footer": { "rights": "Tous droits réservés.", "social": "Réseaux sociaux", "backToTop": "Retour en haut" },
+  "meta": {
+    "title": "Miarotiana Rakotoarisinina | Artiste 2D & Illustratrice",
+    "description": "Portfolio de Miarotiana Rakotoarisinina, artiste 2D et illustratrice : character design, pixel art, animation 2D, assets de jeu et manga. Disponible pour des commandes en freelance."
+  }
 }

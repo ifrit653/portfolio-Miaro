@@ -21,6 +21,11 @@ export default function I18nProvider({ children }) {
 
   useEffect(() => {
     document.documentElement.lang = lang;
+    const { title, description } = dictionaries[lang].meta;
+    document.title = title;
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", description);
     try {
       localStorage.setItem("lang", lang);
     } catch {
