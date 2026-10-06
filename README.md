@@ -122,22 +122,6 @@ Place files in `public/images/`:
 | `about-bg.webp`             | Background illustration for About only, shown at ~18% opacity. |
 | Project and gallery artwork | WebP, around 200 KB max per image.                             |
 
-## Deployment
-
-The site is fully static: `npm run build` outputs `dist/`, which can be hosted anywhere (Netlify, Vercel, Cloudflare Pages, GitHub Pages...). There is no client-side routing, so no rewrite rules are needed.
-
-If deploying under a sub-path (for example GitHub Pages project sites), set `base` in `vite.config.js`.
-
-## Before going live
-
-- [ ] Replace placeholder content: `SITE` (name, email), contact links, all `data/*.js` files
-- [ ] Add real artwork and alt text; replace the `picsum.photos` dummy images
-- [ ] Replace the process icons with the custom ones
-- [ ] Set the real domain in `index.html` (canonical, Open Graph), `robots.txt` and `sitemap.xml`
-- [ ] Add `public/og-image.png` (1200 x 630) and `public/apple-touch-icon.png` (180 x 180)
-- [ ] Check text contrast (WCAG AA) against the final design
-- [ ] Run Lighthouse and axe on the production build (`npm run build && npm run preview`)
-
 ## Credits and license
 
 Design spec: Miarotiana Rakotoarisinina (v2, 2025).
