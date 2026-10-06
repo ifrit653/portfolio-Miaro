@@ -1,0 +1,36 @@
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  padding: 2rem 1.5rem;
+  border: 1px solid rgb(255 249 225 / 0.12);
+  border-radius: 1.5rem;
+  background: var(--bg-alt);
+  text-align: center;
+}
+
+.rating {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0;
+  color: var(--color-accent-gold);
+  font-family: var(--font-heading);
+  font-size: clamp(4rem, 12vw, 8rem);
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums; /* digits don't jitter during the count-up */
+}
+
+.outOf {
+  font-size: 0.35em;
+  opacity: 0.7;
+}
+
+.caption {
+  margin: 0;
+  opacity: 0.75;
+  font-variant-numeric: tabular-nums;
+}
