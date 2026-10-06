@@ -12,6 +12,7 @@ export default function Carousel({
   autoplay = 5000,
   label,
   paused: forcePaused = false,
+  slideBasis,
 }) {
   const { t } = useI18n();
   const reduced = useReducedMotion();
@@ -94,6 +95,7 @@ export default function Carousel({
   return (
     <div
       className={styles.carousel}
+      style={slideBasis ? { "--slide-basis": slideBasis } : undefined}
       role="region"
       aria-roledescription="carousel"
       aria-label={label}

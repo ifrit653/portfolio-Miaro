@@ -24,6 +24,7 @@
   min-width: 0;
   opacity: 0.45;
   transition: opacity 0.4s ease;
+  flex-basis: var(--slide-basis, min(85%, 960px));
 }
 .slide[data-active="true"] {
   opacity: 1;
