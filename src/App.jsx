@@ -1,12 +1,12 @@
 import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
-import Section from "./components/ui/Section";
 import Projects from "./sections/projects/Projects";
 import Process from "./sections/process/Process";
 import Gallery from "./sections/gallery/Gallery";
-
-const PLACEHOLDERS = ["reviews"];
+import Reviews from "./sections/reviews/Reviews";
+import FinalCta from "./sections/FinalCta";
 
 export default function App() {
   return (
@@ -18,12 +18,10 @@ export default function App() {
         <Projects />
         <Process />
         <Gallery />
-        {/* {PLACEHOLDERS.map((id) => (
-          <Section key={id} id={id} title={id}>
-            <div style={{ minHeight: "70vh" }} />
-          </Section>
-        ))} */}
+        <Reviews />
+        <FinalCta />
       </main>
+      <Footer />
     </>
   );
 }
