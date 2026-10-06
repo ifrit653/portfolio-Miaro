@@ -1,0 +1,28 @@
+.cta {
+  padding-block: clamp(4rem, 12vw, 9rem);
+  background: radial-gradient(
+      60% 90% at 50% 110%,
+      rgb(161 17 17 / 0.35),
+      transparent
+    ),
+    var(--bg-alt);
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2.25rem, 7vw, 5rem);
+  line-height: 1.15; /* roomy enough that the line mask doesn't clip descenders */
+}
+
+.text {
+  max-width: 40ch;
+  margin: 1.25rem auto 2.5rem;
+  font-size: 1.15rem;
+  opacity: 0.85;
+}
+
+.cta .button {
+  padding: 1rem 2.75rem;
+  font-size: 1.1rem;
+}
