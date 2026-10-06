@@ -1,4 +1,5 @@
 export const SITE = {
+  fullName: "Miarotiana Rakotoarisinina",
   brand: "OKA",
   email: "aromii.work@gmail.com",   
   heroName: "Miarotiana", // TODO: confirm how the name should appear in the hero
