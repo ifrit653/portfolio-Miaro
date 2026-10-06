@@ -7,7 +7,7 @@ import Button from "../ui/Button";
 import IconButton from "../ui/IconButton";
 import Modal from "../ui/Modal";
 import LanguageToggle from "./LanguageToggle";
-import ContactModal from "./ContactModal";
+import { useContact } from "../../hooks/useContact";
 import MobileMenu from "./MobileMenu";
 import { NAV_ITEMS, SECTION_IDS, SITE } from "../../data/site";
 import { scrollToSection } from "../../hooks/scrollToSection";
@@ -26,7 +26,7 @@ export default function Navbar() {
   const active = useActiveSection(SECTION_IDS);
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [contactOpen, setContactOpen] = useState(false);
+  const { openContact } = useContact();
   const headerRef = useRef(null);
 
   // Entrance animation
@@ -57,7 +57,7 @@ export default function Navbar() {
   };
   const contactFromMenu = () => {
     setMenuOpen(false);
-    setTimeout(() => setContactOpen(true), CLOSE_DELAY);
+    setTimeout(openContact, CLOSE_DELAY);
   };
 
   return (
@@ -101,7 +101,7 @@ export default function Navbar() {
             <Button
               variant="red"
               className={styles.contact}
-              onClick={() => setContactOpen(true)}
+              onClick={openContact}
             >
               {t("nav.contact")}
             </Button>
@@ -130,8 +130,6 @@ export default function Navbar() {
           onContact={contactFromMenu}
         />
       </Modal>
-
-      <ContactModal open={contactOpen} onOpenChange={setContactOpen} />
     </>
   );
 }

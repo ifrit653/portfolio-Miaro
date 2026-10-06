@@ -5,11 +5,14 @@ import "@fontsource-variable/plus-jakarta-sans";
 import "./index.css";
 import I18nProvider from "./i18n/I18nProvider";
 import App from "./App";
+import ContactProvider from "./components/layout/ContactProvider";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <I18nProvider>
-      <App />
+      <ContactProvider>
+        <App />
+      </ContactProvider>
     </I18nProvider>
   </StrictMode>
 );
