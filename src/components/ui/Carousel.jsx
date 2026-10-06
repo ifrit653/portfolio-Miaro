@@ -7,7 +7,12 @@ import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { useI18n } from "../../i18n/useI18n";
 import styles from "./Carousel.module.css";
 
-export default function Carousel({ children, autoplay = 5000, label }) {
+export default function Carousel({
+  children,
+  autoplay = 5000,
+  label,
+  paused: forcePaused = false,
+}) {
   const { t } = useI18n();
   const reduced = useReducedMotion();
 
@@ -15,7 +20,8 @@ export default function Carousel({ children, autoplay = 5000, label }) {
   const count = slides.length;
 
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const paused = forcePaused || hovered;
 
   const viewportRef = useRef(null);
   const trackRef = useRef(null);
@@ -91,10 +97,10 @@ export default function Carousel({ children, autoplay = 5000, label }) {
       role="region"
       aria-roledescription="carousel"
       aria-label={label}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
     >
       <div
         ref={viewportRef}
@@ -113,8 +119,9 @@ export default function Carousel({ children, autoplay = 5000, label }) {
               aria-roledescription="slide"
               aria-label={`${i + 1} / ${count}`}
               data-active={i === index}
+              onClick={() => i !== index && goTo(i)}
             >
-              {slide}
+              <div inert={i !== index}>{slide}</div>
             </div>
           ))}
         </div>

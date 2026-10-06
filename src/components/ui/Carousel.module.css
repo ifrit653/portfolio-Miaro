@@ -27,6 +27,9 @@
 }
 .slide[data-active="true"] {
   opacity: 1;
+  & > div {
+    height: 100%;
+  }
 }
 
 /* Desktop: adjacent cards peek at the edges */
