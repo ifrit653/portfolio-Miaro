@@ -1,0 +1,44 @@
+.hero {
+  display: grid;
+  align-content: center;
+  min-height: calc(100svh - var(--navbar-height));
+  padding: 3rem 1.25rem;
+  /* Soft BG2 glow, still palette-only; delete this line for a flat BG1 */
+  background: radial-gradient(
+    60% 55% at 85% 15%,
+    rgb(26 9 54 / 0.9),
+    transparent
+  );
+}
+
+.inner {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+.name {
+  margin: 0;
+  font-size: clamp(2.5rem, 10.5vw, 9rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 1.25rem 0 0;
+  color: var(--color-accent-gold);
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 3vw, 2rem);
+  font-weight: 700;
+}
+
+.cta {
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-inline: 2rem;
+  }
+}

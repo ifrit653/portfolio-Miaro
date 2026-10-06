@@ -27,5 +27,45 @@
   "description": "Find me on these platforms or send an email.",
   "copyEmail": "Copy email",
   "copied": "Email copied"
+  }, 
+  "about": {
+  "title": "About me",
+  "bio": "I'm a 2D artist and illustrator who creates characters, game assets and animated worlds. From pixel art to hand-drawn illustration, I bring ideas to life with bold colors and a love of storytelling. Open for freelance commissions.",
+  "avatarAlt": "Illustrated portrait of the artist",
+  "tags": {
+      "illustration": "2D Illustration",
+      "characterDesign": "Character Design",
+      "pixelArt": "Pixel Art",
+      "animation": "2D Animation",
+      "gameAssets": "Game Assets",
+      "crossStitch": "Cross-stitch",
+      "mangaBd": "Manga / Comics"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "viewImages": "View images"
+  },
+  "process": {
+    "title": "Process",
+    "open": "View process",
+    "steps": "Steps"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "filters": "Filter by tag",
+    "all": "All",
+    "seeMore": "See more",
+    "open": "View image",
+    "tags": {
+      "fanart": "Fanart",
+      "pixelArt": "Pixel Art",
+      "wip": "WIP",
+      "sketch": "Sketch",
+      "storyboard": "Storyboard",
+      "characterDesign": "Character Design",
+      "background": "Background",
+      "animation": "Animation"
+    }
   }
 }

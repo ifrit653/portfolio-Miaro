@@ -1,7 +1,17 @@
 export const SITE = {
-  brand: "OKA",               
+  brand: "OKA",
   email: "aromii.work@gmail.com",   
+  heroName: "Miarotiana", // TODO: confirm how the name should appear in the hero
 };
+export const ABOUT_TAGS = [
+  "illustration",
+  "characterDesign",
+  "pixelArt",
+  "animation",
+  "gameAssets",
+  "crossStitch",
+  "mangaBd",
+];
 
 export const NAV_ITEMS = [
   { id: "about", labelKey: "nav.about" },
@@ -24,3 +34,4 @@ export const CONTACT_LINKS = [
   { id: "artstation", label: "ArtStation", href: "https://www.artstation.com/miaro" },
 //   { id: "pinterest", label: "Pinterest", href: "https://www.pinterest.com/aromi" },
 ];
+

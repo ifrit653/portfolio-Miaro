@@ -12,7 +12,7 @@
     "primary": "Navigation principale"
   },
   "hero": {
-    "title": "Artiste 2D & Illustratrice",
+    "title": "Artiste 2D & Illustrateur",
     "cta": "Voir mon travail"
   },
   "common": {
@@ -27,5 +27,45 @@
   "description": "Retrouvez-moi sur ces plateformes ou envoyez-moi un email.",
   "copyEmail": "Copier l'email",
   "copied": "Email copié"
-}
+  },
+"about": {
+  "title": "À propos",
+  "bio": "Je suis artiste 2D et illustrateur : je crée des personnages, des assets de jeu et des univers animés. Du pixel art à l'illustration dessinée à la main, je donne vie aux idées avec des couleurs audacieuses et le goût des histoires. Disponible pour des commandes en freelance.",
+  "avatarAlt": "Portrait illustré de l'artiste",
+  "tags": {
+    "illustration": "Illustration 2D",
+    "characterDesign": "Character Design",
+    "pixelArt": "Pixel Art",
+    "animation": "Animation 2D",
+    "gameAssets": "Assets de jeu",
+    "crossStitch": "Point de croix",
+    "mangaBd": "Manga / BD"
+  }
+}, 
+"projects": {
+    "title": "Projets",
+    "viewImages": "Voir les images"
+  },
+  "process": {
+    "title": "Processus",
+    "open": "Voir le processus",
+    "steps": "Étapes"
+  },
+  "gallery": {
+    "title": "Galerie",
+    "filters": "Filtrer par tag",
+    "all": "Tout",
+    "seeMore": "Voir plus",
+    "open": "Voir l'image",
+    "tags": {
+      "fanart": "Fanart",
+      "pixelArt": "Pixel Art",
+      "wip": "WIP",
+      "sketch": "Croquis",
+      "storyboard": "Storyboard",
+      "characterDesign": "Character Design",
+      "background": "Décor",
+      "animation": "Animation"
+    }
+  }
 }
