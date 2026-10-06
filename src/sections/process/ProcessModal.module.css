@@ -1,0 +1,69 @@
+.list {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.25rem;
+  overflow-x: auto; /* 4 steps stay reachable on narrow screens */
+}
+
+.trigger {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem 0.45rem 0.5rem;
+  border: 1px solid rgb(255 249 225 / 0.25);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.trigger:hover {
+  border-color: var(--color-accent-gold);
+}
+.trigger:focus-visible {
+  outline: 3px solid var(--color-cream);
+  outline-offset: 2px;
+}
+
+.trigger[data-state="active"] {
+  border-color: var(--color-accent-gold);
+  background: var(--color-accent-gold);
+  color: var(--color-bg-1);
+}
+
+.num {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: rgb(255 249 225 / 0.15);
+  font-size: 0.8rem;
+}
+.trigger[data-state="active"] .num {
+  background: rgb(15 8 31 / 0.2);
+}
+
+.panel:focus-visible {
+  outline: 2px solid var(--color-cream);
+  outline-offset: 4px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  background: var(--bg);
+}
+
+.text {
+  margin: 1rem 0 0;
+  line-height: 1.6;
+}
