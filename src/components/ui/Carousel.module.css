@@ -64,25 +64,38 @@
 .dots {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0;
   margin-top: 1.25rem;
 }
 
+/* Carousel.module.css: replace .dot */
 .dot {
-  width: 0.6rem;
-  height: 0.6rem;
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
   padding: 0;
   border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
   border-radius: 999px;
   background: rgb(255 249 225 / 0.3);
-  cursor: pointer;
+  translate: -50% -50%;
   transition: width 0.3s ease, background 0.3s ease;
 }
-.dot[aria-current="true"] {
+.dot[aria-current="true"]::before {
   width: 1.75rem;
   background: var(--color-accent-gold);
 }
 .dot:focus-visible {
   outline: 2px solid var(--color-cream);
-  outline-offset: 3px;
+  outline-offset: 0;
+  border-radius: 999px;
 }
