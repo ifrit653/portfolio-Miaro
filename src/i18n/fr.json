@@ -67,5 +67,8 @@
       "background": "Décor",
       "animation": "Animation"
     }
-  }
+  },
+  "reviews": { "title": "Avis", "projectsCompleted": "projets réalisés", "verifyOn": "Vérifier sur" },
+  "cta": { "title": "Un projet en tête ?", "text": "Donnons vie à votre idée ensemble.", "button": "Me contacter" },
+  "footer": { "rights": "Tous droits réservés.", "social": "Réseaux sociaux", "backToTop": "Retour en haut" }
 }

@@ -67,5 +67,8 @@
       "background": "Background",
       "animation": "Animation"
     }
-  }
+  },
+  "reviews": { "title": "Reviews", "projectsCompleted": "projects completed", "verifyOn": "Verify on" },
+  "cta": { "title": "Have a project in mind?", "text": "Let's bring your idea to life together.", "button": "Contact me" },
+  "footer": { "rights": "All rights reserved.", "social": "Social links", "backToTop": "Back to top" }
 }
