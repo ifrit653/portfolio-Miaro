@@ -50,7 +50,7 @@
   aspect-ratio: 1;
   padding: 0;
   border: 1px solid transparent;
-  border-radius: 1rem;
+  border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--bg-alt);
   cursor: zoom-in;

@@ -27,7 +27,7 @@
   max-width: min(92vw, 1400px);
   max-height: 80vh;
   object-fit: contain;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   animation: fade-in 0.3s ease;
 }
 

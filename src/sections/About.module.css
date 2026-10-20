@@ -34,7 +34,7 @@
   aspect-ratio: 1;
   overflow: hidden;
   border: 2px solid var(--color-accent-gold);
-  border-radius: 1.5rem;
+  border-radius: var(--radius-lg);
   box-shadow: 0 0 40px rgb(161 17 17 / 0.35);
 }
 

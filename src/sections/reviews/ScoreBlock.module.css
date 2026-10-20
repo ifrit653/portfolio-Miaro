@@ -6,7 +6,7 @@
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
   padding: 2rem 1.5rem;
   border: 1px solid rgb(255 249 225 / 0.12);
-  border-radius: 1.5rem;
+  border-radius: var(--radius-lg);
   background: var(--bg-alt);
   text-align: center;
 }
