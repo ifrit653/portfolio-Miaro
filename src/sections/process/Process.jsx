@@ -1,22 +1,36 @@
-import { useRef, useState } from "react";
-import { gsap, useGSAP } from "../../lib/gsap";
+import { useEffect, useRef, useState } from "react";
+import { gsap, useGSAP, ScrollTrigger } from "../../lib/gsap";
 import Section from "../../components/ui/Section";
 import ProcessCard from "./ProcessCard";
 import ProcessModal from "./ProcessModal";
+import ProcessPinned from "./ProcessPinned";
 import { PROCESSES } from "../../data/processes";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { useI18n } from "../../i18n/useI18n";
 import styles from "./Process.module.css";
 
+// Pin only when there is enough room; phones and short screens get the cards
+const PIN_QUERY = "(min-width: 1024px) and (min-height: 560px)";
+
 export default function Process() {
   const { t } = useI18n();
   const reduced = useReducedMotion();
+  const pinned = useMediaQuery(PIN_QUERY) && !reduced;
+
   const root = useRef(null);
   const [modal, setModal] = useState({ open: false, process: null });
+  const open = (process) => setModal({ open: true, process });
 
+  // Pinning adds/removes scroll distance: re-measure every trigger
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, [pinned]);
+
+  // Card reveal (grid layout only)
   useGSAP(
     () => {
-      if (reduced) return;
+      if (pinned || reduced) return;
       gsap.from("[data-process-card]", {
         y: 40,
         opacity: 0,
@@ -26,27 +40,32 @@ export default function Process() {
         scrollTrigger: { trigger: root.current, start: "top 80%", once: true },
       });
     },
-    { scope: root, dependencies: [reduced] }
+    { scope: root, dependencies: [pinned, reduced] }
   );
 
   return (
-    <Section id="process" title={t("process.title")}>
-      <ul ref={root} className={styles.grid}>
-        {PROCESSES.map((process) => (
-          <li key={process.id} data-process-card>
-            <ProcessCard
-              process={process}
-              onOpen={() => setModal({ open: true, process })}
-            />
-          </li>
-        ))}
-      </ul>
+    <>
+      <div id="process">
+        {pinned ? (
+          <ProcessPinned onOpen={open} />
+        ) : (
+          <Section id="process-grid" title={t("process.title")}>
+            <ul ref={root} className={styles.grid}>
+              {PROCESSES.map((process) => (
+                <li key={process.id} data-process-card>
+                  <ProcessCard process={process} onOpen={() => open(process)} />
+                </li>
+              ))}
+            </ul>
+          </Section>
+        )}
+      </div>
 
       <ProcessModal
         process={modal.process}
         open={modal.open}
-        onOpenChange={(open) => setModal((s) => ({ ...s, open }))}
+        onOpenChange={(isOpen) => setModal((s) => ({ ...s, open: isOpen }))}
       />
-    </Section>
+    </>
   );
 }
