@@ -3,6 +3,7 @@ import { X } from "lucide-react";
 import IconButton from "./IconButton";
 import { useI18n } from "../../i18n/useI18n";
 import styles from "./Modal.module.css";
+import { useLenisStop } from "../../hooks/useLenisStop";
 
 export default function Modal({
   open,
@@ -15,6 +16,7 @@ export default function Modal({
   children,
 }) {
   const { t } = useI18n();
+  useLenisStop(open);
 
   const titleEl = <Dialog.Title className={styles.title}>{title}</Dialog.Title>;
 
@@ -24,6 +26,7 @@ export default function Modal({
         <Dialog.Overlay className={styles.overlay} />
         <Dialog.Content
           className={`${styles.content} ${styles[variant]} ${className}`}
+          data-lenis-prevent
           {...(!description && { "aria-describedby": undefined })}
         >
           {hideTitle ? (

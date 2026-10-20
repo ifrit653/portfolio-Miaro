@@ -7,10 +7,12 @@ import Process from "./sections/process/Process";
 import Gallery from "./sections/gallery/Gallery";
 import Reviews from "./sections/reviews/Reviews";
 import FinalCta from "./sections/FinalCta";
+import SmoothScroll from "./components/layout/SmoothScroll";
 
 export default function App() {
   return (
     <>
+      <SmoothScroll />
       <Navbar />
       <main>
         <Hero />

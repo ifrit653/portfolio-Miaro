@@ -6,6 +6,7 @@ import "./index.css";
 import I18nProvider from "./i18n/I18nProvider";
 import App from "./App";
 import ContactProvider from "./components/layout/ContactProvider";
+import "lenis/dist/lenis.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

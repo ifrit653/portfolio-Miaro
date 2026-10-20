@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import IconButton from "./IconButton";
 import { useI18n } from "../../i18n/useI18n";
 import styles from "./Lightbox.module.css";
+import { useLenisStop } from "../../hooks/useLenisStop";
 
 export default function Lightbox({
   images,
@@ -12,6 +13,7 @@ export default function Lightbox({
   onOpenChange,
 }) {
   const { t } = useI18n();
+  useLenisStop(open);
   const count = images.length;
   const image = images[index];
 
