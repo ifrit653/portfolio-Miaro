@@ -7,13 +7,16 @@ import I18nProvider from "./i18n/I18nProvider";
 import App from "./App";
 import ContactProvider from "./components/layout/ContactProvider";
 import "lenis/dist/lenis.css";
+import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <I18nProvider>
-      <ContactProvider>
-        <App />
-      </ContactProvider>
-    </I18nProvider>
-  </StrictMode>
+  <BrowserRouter>
+    <StrictMode>
+      <I18nProvider>
+        <ContactProvider>
+          <App />
+        </ContactProvider>
+      </I18nProvider>
+    </StrictMode>
+  </BrowserRouter>
 );
