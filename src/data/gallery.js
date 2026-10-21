@@ -32,3 +32,11 @@ export const GALLERY = COMBOS.map((tags, i) => {
     src: `https://picsum.photos/seed/gallery-${n}/1400/1000`,
   };
 });
+
+// The 6 images shown on the home page (TODO: Miaro picks her best six)
+export const FEATURED_IDS = [
+  "gallery-1", "gallery-6", "gallery-8", "gallery-12", "gallery-17", "gallery-22",
+];
+export const FEATURED = FEATURED_IDS
+  .map((id) => GALLERY.find((item) => item.id === id))
+  .filter(Boolean);
