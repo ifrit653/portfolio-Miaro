@@ -35,6 +35,6 @@ export function scrollToSection(id, { reduced = false } = {}) {
   scrollToY(y, {
     reduced,
     onComplete: () =>
-      history.replaceState(null, "", isHero ? window.location.pathname : `#${id}`),
+      history.replaceState(history.state, "", isHero ? window.location.pathname : `#${id}`),
   });
 }
