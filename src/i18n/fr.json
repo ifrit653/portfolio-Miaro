@@ -66,7 +66,9 @@
       "characterDesign": "Character Design",
       "background": "Décor",
       "animation": "Animation"
-    }
+    },
+    "viewAll": "Voir toute la galerie",
+    "back": "Retour à l'accueil"
   },
   "reviews": { "title": "Avis", "projectsCompleted": "projets réalisés", "verifyOn": "Vérifier sur" },
   "cta": { "title": "Un projet en tête ?", "text": "Donnons vie à votre idée ensemble.", "button": "Me contacter" },
