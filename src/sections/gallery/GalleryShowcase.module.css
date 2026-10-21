@@ -1,0 +1,68 @@
+.root {
+  --lead: clamp(
+    1.5rem,
+    38vw,
+    40rem
+  ); /* empty space before the first card and after the last */
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-block: clamp(4rem, 10vw, 8rem);
+}
+
+.viewport {
+  min-width: 0;
+  overflow-x: clip;
+}
+
+.track {
+  position: relative; /* offsetLeft is measured from the track */
+  display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
+  width: max-content;
+  margin: 0;
+  padding: 0 1.25rem;
+  list-style: none;
+  will-change: transform;
+}
+
+.slide {
+  flex: none;
+  height: var(--card-h);
+  aspect-ratio: 4 / 5;
+}
+
+/* Desktop: pinned. The strip fills the space left under the title, so cards never overflow */
+.root[data-mode="pinned"] {
+  box-sizing: border-box;
+  height: calc(100svh - var(--navbar-height));
+  padding-block: 1.5rem 2.5rem;
+}
+.root[data-mode="pinned"] .viewport {
+  flex: 1;
+  min-height: 0;
+}
+.root[data-mode="pinned"] .track {
+  height: 100%;
+  padding-inline: var(--lead);
+}
+.root[data-mode="pinned"] .slide {
+  height: 100%;
+}
+
+/* Mobile / short screens / reduced motion: a native swipeable strip with snap */
+.root[data-mode="scroll"] {
+  --card-h: min(70svh, 28rem);
+}
+.root[data-mode="scroll"] .viewport {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.root[data-mode="scroll"] .viewport::-webkit-scrollbar {
+  display: none;
+}
+.root[data-mode="scroll"] .slide {
+  scroll-snap-align: center;
+}
