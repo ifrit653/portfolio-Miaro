@@ -1,27 +1,23 @@
+import { Navigate, Route, Routes } from "react-router-dom";
+import SmoothScroll from "./components/layout/SmoothScroll";
+import RouteEffects from "./components/layout/RouteEffects";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import Hero from "./sections/Hero";
-import About from "./sections/About";
-import Projects from "./sections/projects/Projects";
-import Process from "./sections/process/Process";
-import Gallery from "./sections/gallery/Gallery";
-import Reviews from "./sections/reviews/Reviews";
-import FinalCta from "./sections/FinalCta";
-import SmoothScroll from "./components/layout/SmoothScroll";
+import HomePage from "./pages/HomePage";
+import GalleryPage from "./sections/gallery/GalleryPage";
 
 export default function App() {
   return (
     <>
       <SmoothScroll />
+      <RouteEffects />
       <Navbar />
       <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Process />
-        <Gallery />
-        <Reviews />
-        <FinalCta />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
       <Footer />
     </>
