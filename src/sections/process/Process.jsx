@@ -9,9 +9,10 @@ import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { useI18n } from "../../i18n/useI18n";
 import styles from "./Process.module.css";
+import { PIN_QUERY } from "../../lib/media";
 
 // Pin only when there is enough room; phones and short screens get the cards
-const PIN_QUERY = "(min-width: 1024px) and (min-height: 560px)";
+// const PIN_QUERY = "(min-width: 1024px) and (min-height: 560px)";
 
 export default function Process() {
   const { t } = useI18n();
