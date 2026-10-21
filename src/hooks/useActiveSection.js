@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 // `ids` must be a stable reference (module constant)
-export function useActiveSection(ids) {
+export function useActiveSection(ids, routeKey) {
   const [active, setActive] = useState(null);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export function useActiveSection(ids) {
 
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [ids]);
+  }, [ids, routeKey]);
 
   return active;
 }
