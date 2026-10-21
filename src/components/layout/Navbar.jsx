@@ -10,7 +10,8 @@ import LanguageToggle from "./LanguageToggle";
 import { useContact } from "../../hooks/useContact";
 import MobileMenu from "./MobileMenu";
 import { NAV_ITEMS, SECTION_IDS, SITE } from "../../data/site";
-import { scrollToSection } from "../../hooks/scrollToSection";
+import { useLocation, useNavigate } from "react-router-dom";
+import { scrollToSection, scrollToY } from "../../hooks/scrollToSection";
 import { useScrolled } from "../../hooks/useScrolled";
 import { useActiveSection } from "../../hooks/useActiveSection";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
@@ -23,8 +24,11 @@ export default function Navbar() {
   const { t } = useI18n();
   const reduced = useReducedMotion();
   const scrolled = useScrolled();
-  const active = useActiveSection(SECTION_IDS);
-
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const isHome = pathname === "/";
+  const observed = useActiveSection(SECTION_IDS, pathname);
+  const active = isHome ? observed : "gallery"; // Gallery stays highlighted on /gallery
   const [menuOpen, setMenuOpen] = useState(false);
   const { openContact } = useContact();
   const headerRef = useRef(null);
@@ -45,15 +49,21 @@ export default function Navbar() {
     { scope: headerRef, dependencies: [reduced] }
   );
 
+  const go = (id) => {
+    if (isHome) scrollToSection(id, { reduced });
+    else if (id === "gallery")
+      scrollToY(0, { reduced }); // already on the gallery page
+    else navigate({ pathname: "/", hash: id === "hero" ? "" : `#${id}` });
+  };
   const goTo = (id) => (e) => {
     e.preventDefault();
-    scrollToSection(id, { reduced });
+    go(id);
   };
 
   // From the drawer: close first, then scroll / open the contact modal
   const navigateFromMenu = (id) => {
     setMenuOpen(false);
-    setTimeout(() => scrollToSection(id, { reduced }), CLOSE_DELAY);
+    setTimeout(() => go(id), CLOSE_DELAY);
   };
   const contactFromMenu = () => {
     setMenuOpen(false);
@@ -68,7 +78,7 @@ export default function Navbar() {
       >
         <Container className={styles.inner}>
           <a
-            href="#hero"
+            href="/"
             className={styles.logo}
             onClick={goTo("hero")}
             data-nav-animate
@@ -85,7 +95,7 @@ export default function Navbar() {
               {NAV_ITEMS.map(({ id, labelKey }) => (
                 <li key={id}>
                   <a
-                    href={`#${id}`}
+                    href={`/#${id}`}
                     className={styles.link}
                     aria-current={active === id ? "true" : undefined}
                     onClick={goTo(id)}
