@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ToggleGroup } from "radix-ui";
 import { gsap, useGSAP } from "../../lib/gsap";
-import Section from "../../components/ui/Section";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { SITE } from "../../data/site";
 import Button from "../../components/ui/Button";
 import Tag from "../../components/ui/Tag";
 import Lightbox from "../../components/ui/Lightbox";
@@ -9,7 +11,7 @@ import { GALLERY, GALLERY_TAGS } from "../../data/gallery";
 import { useColumns } from "../../hooks/useColumns";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { useI18n } from "../../i18n/useI18n";
-import styles from "./Gallery.module.css";
+import styles from "./GalleryPage.module.css";
 
 const INITIAL_ROWS = 2;
 const ROWS_PER_CLICK = 4;
@@ -63,6 +65,13 @@ export default function Gallery() {
     focusFrom.current = null;
   }, [rows]);
 
+  useEffect(() => {
+    document.title = `${t("gallery.title")} | ${SITE.fullName}`;
+    return () => {
+      document.title = t("meta.title");
+    };
+  }, [t]);
+
   // Block entrance on scroll
   useGSAP(
     () => {
@@ -112,67 +121,76 @@ export default function Gallery() {
   );
 
   return (
-    <Section id="gallery" title={t("gallery.title")}>
-      <div ref={rootRef}>
-        <ToggleGroup.Root
-          type="single"
-          value={filter}
-          onValueChange={onFilterChange}
-          aria-label={t("gallery.filters")}
-          className={styles.filters}
-        >
-          <ToggleGroup.Item value="all" asChild>
-            <Tag as="button" type="button">
-              {t("gallery.all")}
-            </Tag>
-          </ToggleGroup.Item>
-          {GALLERY_TAGS.map((key) => (
-            <ToggleGroup.Item key={key} value={key} asChild>
+    <div className={styles.page}>
+      <div ref={rootRef} className={styles.content}>
+        <header className={styles.header}>
+          <Link to="/" className={styles.back}>
+            <ArrowLeft size={16} aria-hidden="true" /> {t("gallery.back")}
+          </Link>
+          <h1 className={styles.title}>{t("gallery.title")}</h1>
+        </header>
+        <div ref={rootRef}>
+          <ToggleGroup.Root
+            type="single"
+            value={filter}
+            onValueChange={onFilterChange}
+            aria-label={t("gallery.filters")}
+            className={styles.filters}
+          >
+            <ToggleGroup.Item value="all" asChild>
               <Tag as="button" type="button">
-                {t(`gallery.tags.${key}`)}
+                {t("gallery.all")}
               </Tag>
             </ToggleGroup.Item>
-          ))}
-        </ToggleGroup.Root>
+            {GALLERY_TAGS.map((key) => (
+              <ToggleGroup.Item key={key} value={key} asChild>
+                <Tag as="button" type="button">
+                  {t(`gallery.tags.${key}`)}
+                </Tag>
+              </ToggleGroup.Item>
+            ))}
+          </ToggleGroup.Root>
 
-        <ul ref={gridRef} className={styles.grid}>
-          {visible.map((item, i) => (
-            <li key={item.id} data-gallery-item>
-              <button
-                type="button"
-                className={styles.item}
-                aria-haspopup="dialog"
-                onClick={() => setLb({ open: true, index: i })}
-              >
-                <img
-                  src={item.thumb}
-                  alt={item.alt}
-                  width="600"
-                  height="600"
-                  loading="lazy"
-                  decoding="async"
-                  draggable={false}
-                />
-                <span className={styles.overlay}>
-                  {item.tags.map((key) => t(`gallery.tags.${key}`)).join(" · ")}
-                </span>
-              </button>
-            </li>
-          ))}
-        </ul>
+          <ul ref={gridRef} className={styles.grid}>
+            {visible.map((item, i) => (
+              <li key={item.id} data-gallery-item>
+                <button
+                  type="button"
+                  className={styles.item}
+                  aria-haspopup="dialog"
+                  onClick={() => setLb({ open: true, index: i })}
+                >
+                  <img
+                    src={item.thumb}
+                    alt={item.alt}
+                    width="600"
+                    height="600"
+                    loading="lazy"
+                    decoding="async"
+                    draggable={false}
+                  />
+                  <span className={styles.overlay}>
+                    {item.tags
+                      .map((key) => t(`gallery.tags.${key}`))
+                      .join(" · ")}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
 
-        <div className={styles.footer}>
-          {hasMore && (
-            <Button variant="outline" onClick={seeMore}>
-              {t("gallery.seeMore")}
-            </Button>
-          )}
-          <p className={styles.status} role="status">
-            {visible.length} / {filtered.length}
-          </p>
+          <div className={styles.footer}>
+            {hasMore && (
+              <Button variant="outline" onClick={seeMore}>
+                {t("gallery.seeMore")}
+              </Button>
+            )}
+            <p className={styles.status} role="status">
+              {visible.length} / {filtered.length}
+            </p>
+          </div>
         </div>
       </div>
-
       <Lightbox
         images={lightboxImages}
         index={lb.index}
@@ -180,6 +198,6 @@ export default function Gallery() {
         onIndexChange={(index) => setLb((s) => ({ ...s, index }))}
         onOpenChange={(open) => setLb((s) => ({ ...s, open }))}
       />
-    </Section>
+    </div>
   );
 }

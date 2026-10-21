@@ -1,3 +1,58 @@
+.page {
+  /* vertical space used by everything except the tiles (navbar, header, filters) */
+  --page-overhead: calc(var(--navbar-height) + 14rem);
+  --tile-height: max(
+    8.75rem,
+    min(clamp(12.5rem, 22vw, 26rem), calc((100svh - var(--page-overhead)) / 2))
+  );
+
+  display: grid;
+  grid-template-columns: minmax(1.5rem, 1fr) minmax(0, 2000px) minmax(
+      1.5rem,
+      1fr
+    );
+  overflow-x: clip;
+  padding-block: clamp(2rem, 5vw, 4rem) clamp(4rem, 8vw, 8rem);
+}
+
+.content {
+  grid-column: 2;
+}
+
+.header {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-cream);
+  font-weight: 700;
+  text-decoration: none;
+  opacity: 0.75;
+  transition: color 0.2s, opacity 0.2s;
+}
+.back:hover {
+  color: var(--color-accent-gold);
+  opacity: 1;
+}
+.back:focus-visible {
+  outline: 2px solid var(--color-cream);
+  outline-offset: 3px;
+  opacity: 1;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  line-height: 1;
+}
+
+/* Filters: one scrollable row on mobile, wrapping on larger screens */
 .filters {
   display: flex;
   gap: 0.6rem;
@@ -12,7 +67,6 @@
 .filters > * {
   flex: none;
 }
-
 @media (min-width: 768px) {
   .filters {
     flex-wrap: wrap;
@@ -29,7 +83,6 @@
   padding: 0;
   list-style: none;
 }
-
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
@@ -47,7 +100,7 @@
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 1;
+  height: var(--tile-height);
   padding: 0;
   border: 1px solid transparent;
   border-radius: var(--radius-md);
@@ -75,7 +128,6 @@
   transform: scale(1.06);
 }
 
-/* Hover overlay showing the image's tags (Figma: hover state) */
 .overlay {
   position: absolute;
   inset: 0;
@@ -102,7 +154,6 @@
   gap: 1rem;
   margin-top: 2.5rem;
 }
-
 .status {
   margin: 0;
   font-size: 0.85rem;
