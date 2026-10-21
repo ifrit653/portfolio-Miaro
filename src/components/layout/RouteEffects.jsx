@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { ScrollTrigger } from "../../lib/gsap";
 import { getLenis } from "../../lib/lenis";
-import { scrollToSection } from "../../lib/scrollToSection";
+import { scrollToSection } from "../../hooks/scrollToSection";
 
 export default function RouteEffects() {
   const { pathname, hash } = useLocation();
